@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Raja Sankranti!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap');
+
+        :root {
+            --primary-color: #FF6B6B; /* Festive Red/Pink */
+            --secondary-color: #FFD93D; /* Festive Yellow */
+            --accent-color: #4D96FF; /* A contrasting accent if needed, not heavily used here */
+            --text-color: #FFFFFF;
+            --bg-gradient: linear-gradient(135deg, #FF7E5F, #FEB47B, #FF6B6B); /* Sunset/Festive Gradient */
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            padding: 25px 30px;
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            width: 90%;
+            max-width: 500px;
+            animation: fadeInPage 0.8s ease-out;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #rajaGif {
+            width: 100%;
+            max-width: 350px; /* Control max size on larger screens */
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .festive-greeting {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--secondary-color), #FFF, #FF8C00); /* Gold/White/Orange Gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5), /* Gold glow */
+                         0 0 15px rgba(255, 165, 0, 0.4); /* Orange glow */
+            animation: fadeInText 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(15px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .name-input {
+            width: calc(100% - 30px); /* Full width minus padding */
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .name-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .name-input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(255, 217, 61, 0.5);
+        }
+
+        .action-button {
+            background: linear-gradient(45deg, var(--primary-color), #FF8C69); /* Orange-Red gradient */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px; /* Pill shape */
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: 2px solid transparent;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .action-button::before { /* For hover shine effect */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            outline-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .action-button:active {
+            transform: translateY(0px) scale(0.98);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #customGreetingMessage {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            padding: 15px;
+            background: var(--glass-bg);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            min-height: 40px; /* Prevent layout jump */
+            display: none; /* Hidden initially */
+            color: var(--text-color);
+            animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        #shareWhatsappButton {
+            background-color: #25D366; /* WhatsApp Green */
+            display: none; /* Hidden initially */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #shareWhatsappButton svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: white;
+        }
+        
+        .audio-controls {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Stack label and slider on small screens */
+            gap: 8px;
+            background: var(--glass-bg);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .audio-controls label {
+            font-size: 0.9rem;
+            margin-bottom: 5px; /* Space between label and slider if stacked */
+        }
+
+        .audio-controls input[type="range"] {
+            width: 150px;
+            cursor: pointer;
+            accent-color: var(--primary-color); /* Modern way to style slider */
+        }
+        
+        /* Fallback for older browsers for slider track */
+        .audio-controls input[type=range]::-webkit-slider-runnable-track {
+            background: rgba(255, 255, 255, 0.3);
+            height: 5px;
+            border-radius: 3px;
+        }
+        .audio-controls input[type=range]::-moz-range-track {
+            background: rgba(255, 255, 255, 0.3);
+            height: 5px;
+            border-radius: 3px;
+        }
+        .audio-controls input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin-top: -5px; /* Align thumb with track */
+        }
+        .audio-controls input[type=range]::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: none;
+        }
+
+
+        /* Footer for credits or small messages */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="rajaGif" src="RAJA1.gif" alt="Raja Festival Animation">
+
+        <h1 class="festive-greeting">
+            HAPPY RAJA SANKRANTI !<br>
+            May this RAJA bring joy, peace, and prosperity to all!
+        </h1>
+
+        <input type="text" id="nameInput" class="name-input" placeholder="Enter your name here">
+
+        <button id="generateWishButton" class="action-button">
+            Generate HAPPY RAJA Wish
+        </button>
+
+        <p id="customGreetingMessage"></p>
+
+        <button id="shareWhatsappButton" class="action-button">
+            <svg viewBox="0 0 24 24"> <!-- Simple WhatsApp Icon SVG -->
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.62C8.75 21.42 10.36 21.86 12.04 21.86C17.5 21.86 21.95 17.41 21.95 11.95C21.95 6.49 17.5 2 12.04 2M12.04 3.67C16.56 3.67 20.28 7.38 20.28 11.92C20.28 16.46 16.56 20.18 12.04 20.18C10.53 20.18 9.09 19.78 7.85 19.05L7.46 18.83L4.5 19.7L5.42 16.89L5.18 16.48C4.38 15.11 3.96 13.53 3.96 11.92C3.96 7.38 7.64 3.67 12.04 3.67M17.36 14.26C17.13 14.12 16.12 13.62 15.93 13.55C15.73 13.48 15.59 13.44 15.46 13.67C15.32 13.91 14.86 14.48 14.71 14.65C14.55 14.82 14.4 14.84 14.17 14.71C13.94 14.57 13.06 14.24 12.03 13.32C11.21 12.59 10.68 11.71 10.53 11.47C10.39 11.24 10.51 11.12 10.64 11C10.76 10.88 10.91 10.7 11.03 10.56C11.16 10.42 11.21 10.33 11.32 10.13C11.42 9.93 11.37 9.77 11.3 9.65C11.24 9.54 10.76 8.36 10.56 7.89C10.37 7.42 10.18 7.48 10.05 7.47C9.92 7.47 9.78 7.47 9.65 7.47C9.51 7.47 9.27 7.54 9.07 7.74C8.87 7.94 8.36 8.41 8.36 9.31C8.36 10.21 9.07 11.08 9.21 11.25C9.34 11.42 10.76 13.73 13.01 14.65C13.56 14.89 13.95 15.02 14.25 15.11C14.77 15.26 15.22 15.23 15.55 15.17C15.93 15.1 16.81 14.6 17.01 14.5C17.21 14.4 17.36 14.42 17.45 14.53C17.55 14.65 17.59 14.84 17.53 15.01C17.46 15.18 17.36 14.26 17.36 14.26Z" />
+            </svg>
+            Share on WhatsApp
+        </button>
+
+        <div class="audio-controls">
+            <label for="volumeControl">Music Volume:</label>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.3">
+        </div>
+        
+        <audio id="backgroundMusic" src="RAJA.mp3" autoplay loop></audio>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; <span id="year"></span> Raja Greetings. Enjoy the festival!</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameInput = document.getElementById('nameInput');
+            const generateWishButton = document.getElementById('generateWishButton');
+            const customGreetingMessage = document.getElementById('customGreetingMessage');
+            const shareWhatsappButton = document.getElementById('shareWhatsappButton');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const volumeControl = document.getElementById('volumeControl');
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Audio Controls ---
+            // Set initial volume. Autoplay might be blocked by browsers until user interaction.
+            // Some browsers ignore volume set before interaction for autoplay.
+            backgroundMusic.volume = parseFloat(volumeControl.value); 
+            
+            // Attempt to play if autoplay was blocked (common in Chrome)
+            // A common workaround is to play on first user interaction if autoplay fails.
+            // For this project, we rely on 'autoplay' attribute and provide volume control.
+            // Consider adding a "click to play" if autoplay is unreliable across all devices/browsers.
+            const playPromise = backgroundMusic.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    console.warn("Audio autoplay was prevented. User interaction might be needed.", error);
+                    // You could show a "Click to enable sound" button here.
+                });
+            }
+
+
+            volumeControl.addEventListener('input', function() {
+                backgroundMusic.volume = this.value;
+            });
+
+            // --- Wish Generation ---
+            generateWishButton.addEventListener('click', function() {
+                const userName = nameInput.value.trim();
+                if (userName === "") {
+                    alert("Please enter your name to generate a wish!");
+                    nameInput.focus();
+                    return;
+                }
+
+                const wishMessage = `HAPPY RAJA SANKRANTI from ${userName}, Wishing you happiness and blessings!`;
+                customGreetingMessage.textContent = wishMessage;
+                customGreetingMessage.style.display = 'block';
+                shareWhatsappButton.style.display = 'inline-flex'; // Use inline-flex for button with icon
+            });
+
+            // --- WhatsApp Sharing ---
+            shareWhatsappButton.addEventListener('click', function() {
+                const message = customGreetingMessage.textContent;
+                if (!message) {
+                    alert("Please generate a wish first!");
+                    return;
+                }
+
+                const siteUrl = window.location.href;
+                const whatsappMessage = encodeURIComponent(`${message}\n\nCheck out this festive greeting: ${siteUrl}`);
+                
+                // Using api.whatsapp.com for broad compatibility
+                const whatsappUrl = `https://api.whatsapp.com/send?text=${whatsappMessage}`;
+                // const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`; // Alternative, sometimes better on mobile
+
+                window.open(whatsappUrl, '_blank');
+            });
+
+            // Animation for input focus - just an example if you want more JS based animations
+            nameInput.addEventListener('focus', () => {
+                nameInput.style.transform = 'scale(1.02)';
+            });
+            nameInput.addEventListener('blur', () => {
+                nameInput.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+</body>
+</html>
